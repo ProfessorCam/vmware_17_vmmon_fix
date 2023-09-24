@@ -16,3 +16,6 @@ tail $(modinfo -n vmmon) | grep "Module signature appended"
 #Advanced - This command imports the certificate into the system’s Machine Owner Key (MOK) database. This allows the system’s Secure Boot feature to recognize the signed modules as trusted.
 #Simpler - This command adds the certificate to a list of trusted certificates on your computer. This is like telling your computer that modules signed with this certificate are safe to use.
 sudo mokutil --import VMWARE17.der
+
+#This is often used after updating the kernel on a Linux system running VMware Workstation. The command rebuilds and reinstalls all VMware kernel modules. It’s useful if VMware Workstation stops functioning after a kernel update.
+sudo vmware-modconfig --console --install-all
